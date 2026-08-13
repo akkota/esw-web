@@ -82,11 +82,8 @@ export default function BotDocsPage() {
           </li>
         </ol>
         <p className="rounded-xl border border-esw-forest/10 bg-white/50 px-4 py-3 text-sm">
-          New to Discord? Use the{" "}
-          <Link href="/discord" className="text-esw-leaf underline-offset-2 hover:underline">
-            2-minute join guide
-          </Link>{" "}
-          first, then come back here for staff setup.
+          Public Discord join is paused until the chapter server launches. This page is for staff
+          bot setup once you have a server.
         </p>
       </Section>
 
@@ -252,19 +249,19 @@ export default function BotDocsPage() {
 
       <div className="flex flex-wrap gap-3 border-t border-esw-forest/10 pt-8">
         <Link
-          href="/discord"
-          className="rounded-full bg-esw-forest px-5 py-2.5 text-esw-sand hover:bg-esw-leaf"
-        >
-          Join guide
-        </Link>
-        <Link
           href="/challenges"
-          className="rounded-full border border-esw-forest/30 px-5 py-2.5 hover:border-esw-forest"
+          className="rounded-full bg-esw-forest px-5 py-2.5 text-esw-sand hover:bg-esw-leaf"
         >
           Challenges
         </Link>
-        <Link href="/resources" className="px-5 py-2.5 text-esw-leaf hover:text-esw-forest">
-          Resources →
+        <Link
+          href="/resources"
+          className="rounded-full border border-esw-forest/30 px-5 py-2.5 hover:border-esw-forest"
+        >
+          Resources
+        </Link>
+        <Link href="/" className="px-5 py-2.5 text-esw-leaf hover:text-esw-forest">
+          Home →
         </Link>
       </div>
     </div>

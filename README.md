@@ -1,6 +1,6 @@
 # ESW Hub
 
-Student-facing website for **Engineers for a Sustainable World** — Discord onboarding, chapter resources, and dual-verified sustainability habit challenges.
+Student-facing website for **Engineers for a Sustainable World** — chapter resources and dual-verified sustainability habit challenges. Discord join UI is parked until the chapter server is live.
 
 Lives next to the [Gears](../Gears) Discord bot and shares the same Supabase project.
 
@@ -14,7 +14,7 @@ Lives next to the [Gears](../Gears) Discord bot and shares the same Supabase pro
 ```bash
 pnpm install
 cp .env.example .env.local
-# fill Supabase URL/anon key, service role (server), Discord invite
+# fill Supabase URL/anon key + service role. Discord invite is optional (omit for invite-only).
 pnpm dev
 ```
 

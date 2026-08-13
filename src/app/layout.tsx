@@ -17,7 +17,7 @@ const body = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: "ESW Hub",
-  description: "Engineers for a Sustainable World — resources, challenges, and Discord.",
+  description: "Engineers for a Sustainable World — resources and sustainability challenges.",
 };
 
 async function loadProfile(): Promise<Profile | null> {

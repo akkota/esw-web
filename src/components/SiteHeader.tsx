@@ -3,7 +3,8 @@ import type { Profile } from "@/lib/types";
 import { isStaff } from "@/lib/types";
 
 export function SiteHeader({ profile }: { profile: Profile | null }) {
-  const invite = process.env.NEXT_PUBLIC_DISCORD_INVITE_URL ?? "#discord";
+  // Restore when public Discord exists:
+  // const invite = process.env.NEXT_PUBLIC_DISCORD_INVITE_URL?.trim() || null;
 
   return (
     <header className="border-b border-esw-forest/10 bg-esw-sand/70 backdrop-blur-md">
@@ -12,9 +13,6 @@ export function SiteHeader({ profile }: { profile: Profile | null }) {
           ESW
         </Link>
         <nav className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 text-sm text-esw-ink/80">
-          <Link href="/discord" className="hover:text-esw-forest">
-            Discord
-          </Link>
           <Link href="/docs" className="hover:text-esw-forest">
             Bot docs
           </Link>
@@ -46,14 +44,6 @@ export function SiteHeader({ profile }: { profile: Profile | null }) {
               Sign in
             </Link>
           )}
-          <a
-            href={invite}
-            className="hidden rounded-full border border-esw-forest/30 px-3 py-1.5 hover:border-esw-forest sm:inline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Join Discord
-          </a>
         </nav>
       </div>
     </header>
