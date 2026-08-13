@@ -7,7 +7,7 @@ Lives next to the [Gears](../Gears) Discord bot and shares the same Supabase pro
 ## Stack
 
 - Next.js (App Router) + TypeScript + Tailwind
-- Supabase Auth (Discord + Google) + Postgres + Storage
+- Supabase Auth (Discord) + Postgres + Storage
 
 ## Quick start
 
@@ -26,7 +26,7 @@ Open [http://localhost:3000](http://localhost:3000).
    - `supabase/schema.sql`
    - `supabase/rls.sql`
 2. Create Storage bucket `habit-proofs` (private).
-3. Auth → enable **Discord** and **Google** providers.
+3. Auth → enable **Discord** provider (Google can wait).
 4. Add redirect URL: `http://localhost:3000/auth/callback` (and production URL later).
 5. Promote staff: `update profiles set role = 'admin' where email = 'you@example.com';`
 

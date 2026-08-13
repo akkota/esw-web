@@ -210,8 +210,7 @@ export default function BotDocsPage() {
         </ol>
         <p className="rounded-xl border border-esw-clay/40 bg-white/50 px-4 py-3 text-sm">
           Sign in with Discord on the site if you can — that links your Discord id so the bot can
-          mention you on proof posts. Google login still works; mention may fall back to your
-          display name.
+          mention you on proof posts.
         </p>
       </Section>
 
