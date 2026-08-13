@@ -1,103 +1,75 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="space-y-16">
+      <section className="flex min-h-[70vh] flex-col justify-center gap-6 py-8">
+        <p className="text-sm uppercase tracking-[0.2em] text-esw-leaf">Engineers for a Sustainable World</p>
+        <h1 className="font-display max-w-3xl text-5xl leading-tight text-esw-forest sm:text-6xl">
+          Build with your chapter. Grow with the planet.
+        </h1>
+        <p className="max-w-xl text-lg text-esw-ink/75">
+          Student resources, verified sustainability challenges, and a fast path into the ESW Discord —
+          all in one place.
+        </p>
+        <div className="flex flex-wrap gap-3 pt-2">
+          <Link
+            href="/discord"
+            className="rounded-full bg-esw-forest px-5 py-3 text-esw-sand hover:bg-esw-leaf"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Join Discord (2 min)
+          </Link>
+          <Link
+            href="/challenges"
+            className="rounded-full border border-esw-forest/30 px-5 py-3 text-esw-forest hover:border-esw-forest"
           >
-            Read our docs
-          </a>
+            Log a habit
+          </Link>
+          <Link
+            href="/docs"
+            className="rounded-full border border-esw-forest/30 px-5 py-3 text-esw-forest hover:border-esw-forest"
+          >
+            Bot docs
+          </Link>
+          <Link href="/resources" className="px-5 py-3 text-esw-leaf hover:text-esw-forest">
+            Browse resources →
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      <section className="grid gap-6 sm:grid-cols-2">
+        {[
+          {
+            title: "Discord, simplified",
+            body: "A five-step guide so new members are not lost in channels.",
+            href: "/discord",
+          },
+          {
+            title: "Bot docs",
+            body: "Setup order, permissions, and how website habits sync with Discord.",
+            href: "/docs",
+          },
+          {
+            title: "Chapter resources",
+            body: "Budget tracking, sponsorship outreach, and career prep that stays up to date.",
+            href: "/resources",
+          },
+          {
+            title: "Habit challenges",
+            body: "Log sustainable actions with a photo. Staff verify on the web or in Discord.",
+            href: "/challenges",
+          },
+        ].map((card) => (
+          <Link
+            key={card.href}
+            href={card.href}
+            className="rounded-2xl border border-esw-forest/10 bg-white/50 p-6 transition hover:border-esw-moss"
+          >
+            <h2 className="font-display text-xl text-esw-forest">{card.title}</h2>
+            <p className="mt-2 text-sm text-esw-ink/70">{card.body}</p>
+          </Link>
+        ))}
+      </section>
     </div>
   );
 }

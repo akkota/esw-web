@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ESW Hub
 
-## Getting Started
+Student-facing website for **Engineers for a Sustainable World** — Discord onboarding, chapter resources, and dual-verified sustainability habit challenges.
 
-First, run the development server:
+Lives next to the [Gears](../Gears) Discord bot and shares the same Supabase project.
+
+## Stack
+
+- Next.js (App Router) + TypeScript + Tailwind
+- Supabase Auth (Discord + Google) + Postgres + Storage
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.example .env.local
+# fill Supabase URL/anon key, service role (server), Discord invite
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Supabase setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Apply SQL in order:
+   - `supabase/schema.sql`
+   - `supabase/rls.sql`
+2. Create Storage bucket `habit-proofs` (private).
+3. Auth → enable **Discord** and **Google** providers.
+4. Add redirect URL: `http://localhost:3000/auth/callback` (and production URL later).
+5. Promote staff: `update profiles set role = 'admin' where email = 'you@example.com';`
 
-## Learn More
+## Discord bot bridge (Gears)
 
-To learn more about Next.js, take a look at the following resources:
+In the Gears bot repo:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Apply `habit_challenge_channel_id` on `guild_settings` (included in Gears schema / migration).
+2. Run `/set-habit-channel` in Discord.
+3. Pending website logs are posted with Approve/Reject buttons (Mod+).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes
 
-## Deploy on Vercel
+| Path | Purpose |
+| --- | --- |
+| `/` | Home |
+| `/discord` | 2-minute Discord guide |
+| `/docs` | How to use the Gears bot (setup order + website habits) |
+| `/resources` | Student guides |
+| `/challenges` | Log habits (photo required) |
+| `/challenges/leaderboard` | Verified tallies |
+| `/admin/*` | Staff queue, resources, bot overview |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Env
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `.env.example`.
