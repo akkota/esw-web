@@ -48,7 +48,7 @@ export default function HomePage() {
           },
           {
             title: "Bot docs",
-            body: "Setup order, permissions, and how website habits will sync with Discord.",
+            body: "Garden levels, setup order, and how website habits sync with Discord.",
             href: "/docs",
           },
         ].map((card) => (

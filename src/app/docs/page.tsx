@@ -42,6 +42,9 @@ export default function BotDocsPage() {
           <a href="#permissions" className="hover:text-esw-forest">
             Permissions
           </a>
+          <a href="#garden" className="hover:text-esw-forest">
+            Garden &amp; levels
+          </a>
           <a href="#members" className="hover:text-esw-forest">
             Members
           </a>
@@ -110,15 +113,39 @@ export default function BotDocsPage() {
         </p>
       </Section>
 
-      <Section id="members" title="3. Everyday member stuff">
-        <ul className="list-disc space-y-2 pl-5">
+      <Section id="garden" title="3. Garden &amp; levels">
+        <p>
+          Chat in the server to earn XP. Every so often a message gives you XP (there is a short
+          cooldown). XP raises your <strong>level</strong>. Level unlocks Discord rank roles{" "}
+          <em>and</em> a personal garden.
+        </p>
+        <ol className="list-decimal space-y-2 pl-5">
           <li>
-            <Cmd>/xp</Cmd> — your XP and level. <Cmd>/rank</Cmd> — full ladder (Unlocked / Current /
-            Locked).
+            <Cmd>/rank</Cmd> or <Cmd>/garden view</Cmd> — see your plots.
           </li>
           <li>
-            Chat awards XP automatically (with a short cooldown). Rank roles sync when you cross a
-            threshold — only if staff ran <Cmd>/level-role</Cmd> first.
+            Plant a seed. You start with <strong>1 plot</strong> and radishes. More plots, seeds,
+            watering (level 5), and fertilizer (level 20) unlock as you level.
+          </li>
+          <li>
+            Wait. You cannot harvest a fresh plant. The longer you wait (up to a peak), the
+            stronger the boost. Wait too long and it wilts — still usable, but weak.
+          </li>
+          <li>
+            Harvest into your bag, then use the item. That starts a timed{" "}
+            <strong>chat-XP boost</strong> (for example 1.25×–2.5×). Only one boost at a time.
+          </li>
+        </ol>
+        <p className="text-sm text-esw-ink/65">
+          Watering speeds growth a little (once per plant). Fertilizer bumps harvest quality.
+          <Cmd>/xp</Cmd> is just the numbers; the garden is the fun part.
+        </p>
+      </Section>
+
+      <Section id="members" title="4. Everyday member stuff">
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            Levels and the garden: see <a href="#garden" className="text-esw-leaf hover:underline">Garden &amp; levels</a>.
           </li>
           <li>
             <Cmd>/remind</Cmd>, <Cmd>/timestamp</Cmd>, <Cmd>/timezone</Cmd>, <Cmd>/define</Cmd>,{" "}
@@ -133,7 +160,7 @@ export default function BotDocsPage() {
         </ul>
       </Section>
 
-      <Section id="staff-setup" title="4. Staff features (and what they need)">
+      <Section id="staff-setup" title="5. Staff features (and what they need)">
         <div className="space-y-4">
           <div>
             <h3 className="font-medium text-esw-forest">XP & ranks</h3>
@@ -177,7 +204,7 @@ export default function BotDocsPage() {
         </div>
       </Section>
 
-      <Section id="habits" title="5. Website habits ↔ Discord (read this)">
+      <Section id="habits" title="6. Website habits ↔ Discord (read this)">
         <p>
           Sustainability challenges live on this site. Discord is one place to{" "}
           <strong>verify</strong> them — not a second ledger.
@@ -211,7 +238,7 @@ export default function BotDocsPage() {
         </p>
       </Section>
 
-      <Section id="commands" title="6. Command map">
+      <Section id="commands" title="7. Command map">
         <div className="overflow-x-auto rounded-2xl border border-esw-forest/10 bg-white/40">
           <table className="w-full min-w-[28rem] text-left text-sm">
             <thead className="border-b border-esw-forest/10 text-esw-forest">
@@ -225,7 +252,7 @@ export default function BotDocsPage() {
               {[
                 ["Setup", "/set-admin-role, /set-srmod-role, /set-mod-role, /set-log-channel (+ unset-*)", "Owner / Admin"],
                 ["Moderation", "/mute, /kick, /ban, /massban, /purge", "SrMod+ / Admin / Mod"],
-                ["XP", "/xp, /rank, /givexp, /setxp, /level-role", "Everyone / SrMod+ / Admin"],
+                ["XP & garden", "/xp, /rank, /garden, /givexp, /setxp, /level-role", "Everyone / SrMod+ / Admin"],
                 ["Server ops", "/welcome, /repeat, /autorespond, /embed, /reaction-role", "Admin"],
                 ["Habits bridge", "/set-habit-channel (+ Approve/Reject buttons)", "Admin / Mod+"],
                 ["Utilities", "/remind, /timestamp, /timezone, /define, /userinfo, /serverinfo, /roleinfo", "Everyone"],

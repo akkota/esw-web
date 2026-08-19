@@ -27,8 +27,15 @@ Open [http://localhost:3000](http://localhost:3000).
    - `supabase/rls.sql`
 2. Create Storage bucket `habit-proofs` (private).
 3. Auth → enable **Discord** provider (Google can wait).
-4. Add redirect URL: `http://localhost:3000/auth/callback` (and production URL later).
-5. Promote staff: `update profiles set role = 'admin' where email = 'you@example.com';`
+4. Auth → URL Configuration (exact shapes — path mistakes cause localhost or 404):
+   - **Site URL**: `https://esw-web.vercel.app` only (no `/auth/callback`, no trailing path)
+   - **Redirect URLs** (one per line):
+     - `http://localhost:3000/auth/callback`
+     - `https://esw-web.vercel.app/auth/callback`
+5. Discord Developer Portal → OAuth2 → Redirects must be the **Supabase** callback, not Vercel:
+   `https://YOUR_PROJECT_REF.supabase.co/auth/v1/callback`
+6. On Vercel env (optional): `NEXT_PUBLIC_SITE_URL=https://esw-web.vercel.app` (origin only). Redeploy after changing any `NEXT_PUBLIC_*` var.
+7. Promote staff: `update profiles set role = 'admin' where email = 'you@example.com';`
 
 ## Discord bot bridge (Gears)
 
